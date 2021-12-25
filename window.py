@@ -36,7 +36,7 @@ class window:
         self.init_line_dotted(self)
         self.init_line_spiral(self)
 
-    # Initialize the base options for drawing a line
+    # Base options init
     def init_line_base(self):
         baseframe = ttk.Frame(self.lineframe)
         baseframe.pack(side=TOP)
@@ -59,11 +59,11 @@ class window:
         self.config.update({'max_branches': self.max_branches})
 
         # Max tree depth
-        max_depth_label = Label(baseframe, text='Maximum depth:')
-        max_depth_label.grid(row=1, column=4)
-        self.max_depth = Entry(baseframe, textvariable=StringVar())
-        self.max_depth.grid(row=1, column=5)
-        self.config.update({'max_depth': self.max_depth})
+        depth_label = Label(baseframe, text='Depth:')
+        depth_label.grid(row=1, column=4)
+        self.depth = Entry(baseframe, textvariable=StringVar())
+        self.depth.grid(row=1, column=5)
+        self.config.update({'depth': self.depth})
 
         # Max line length parameter
         max_length_label = Label(baseframe, text='Maximum line length:')
@@ -227,7 +227,7 @@ class window:
     config = {}
     line_color = line_count_max = line_thickness = line_length_max = line_length_min = None
     starting_x = starting_y = starting_angle = None
-    max_branches = max_depth = branching_projection_angle = None
+    max_branches = depth = branching_projection_angle = None
 
     # Line buttons
     lineframe = ttk.Frame(frm, padding=10)
